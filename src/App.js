@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import marked from 'marked';
 import './App.css';
 
 export default function App() {
-  const [markdown, setMarkdown] = useState(`# Welcome to my React Markdown Previewer!
+  const [
+    markdown,
+    setMarkdown,
+  ] = useState(`# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
 ### And here's some other cool stuff:
@@ -54,27 +57,27 @@ And here. | Okay. | I think we get it.
     <body>
       <div>
         <h1 id="title">Markdown Previewer</h1>
-        <div id="titlescontainer">
-          <h1 id="editorTitle">Editor</h1>
-          <h1 id="previewerTitle">Previewer</h1>
-        </div>
         <div id="container">
-          <textarea
-            id="editor"
-            onChange={(e) => {
-              updateMarkdown(e.target.value);
-            }}
-          >
-            {markdown}
-          </textarea>
-          <div
-            id="preview"
-            dangerouslySetInnerHTML={{ __html: marked(markdown) }}
-          ></div>
+          <div id="editorcontainer">
+            <h1 id="editorTitle">Editor</h1>
+            <textarea
+              id="editor"
+              onChange={(e) => {
+                updateMarkdown(e.target.value);
+              }}
+            >
+              {markdown}
+            </textarea>
+          </div>
+          <div id="previewercontainer">
+            <h1 id="previewerTitle">Previewer</h1>
+            <div
+              id="preview"
+              dangerouslySetInnerHTML={{ __html: marked(markdown) }}
+            ></div>
+          </div>
         </div>
       </div>
     </body>
   );
 }
-
-
